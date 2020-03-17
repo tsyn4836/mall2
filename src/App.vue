@@ -1,32 +1,25 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <!-- 页面容器 -->
+  <div id="app" class="g-container">
+    <!-- 主视图容器 -->
+    <div class="g-view-container">
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
     </div>
-    <router-view/>
+    <!-- 底部导航条容器 -->
+    <div class="g-footer-container">
+      <c-tabbar />
+    </div>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+<script>
+import CTabbar from './components/tabbar'
+export default {
+  name: 'App',
+  components: {
+    CTabbar
   }
 }
-</style>
+</script>
